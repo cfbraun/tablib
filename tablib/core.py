@@ -1023,26 +1023,26 @@ def detect(stream):
     return (None, stream)
 
 
-def import_set(stream):
+def import_set(stream, headers=True):
     """Return dataset of given stream."""
     (format, stream) = detect(stream)
 
     try:
         data = Dataset()
-        format.import_set(data, stream)
+        format.import_set(data, stream, headers)
         return data
 
     except AttributeError:
         return None
 
 
-def import_book(stream):
+def import_book(stream, headers=True):
     """Return dataset of given stream."""
     (format, stream) = detect(stream)
 
     try:
         databook = Databook()
-        format.import_book(databook, stream)
+        format.import_book(databook, stream, headers)
         return databook
 
     except AttributeError:
